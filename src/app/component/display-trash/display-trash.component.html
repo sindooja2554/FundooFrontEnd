@@ -1,0 +1,17 @@
+<div [ngClass]="!clicked ? 'display' : 'noteComponent'">
+    <div [ngClass]="!clicked ? 'card' : 'column'">
+        <mat-card  [ngClass]="!clicked ? 'card' : 'noteCard'" [style.background-color]="noteCards.color.code">
+            <p class="title" (click)="trashNote(noteCards)">{{noteCards.title}}</p>
+            <p class="description" (click)="trashNote(noteCards)">{{noteCards.description}}</p>
+            <div class="doubleDivs">
+                <button mat-icon-button (click)="openDialogToDelete(noteCards)">
+                    <img src="../../../assets/delete.svg" matTooltip="delete">             
+                </button>
+                <button mat-icon-button (click)="restore()">
+                    <img src="../../../assets/undodelete.svg" matTooltip="restore">
+                </button>
+            </div>
+        </mat-card>
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+<app-note (messageEvent)="receiveMessage()"></app-note>
+<div [ngClass]="!clicked ? 'list' : 'grid'">
+  <app-display (reminderEvent)="getAllRemainder($event)" (colorEventForDisplay)="getAllRemainder($event)"
+    (isTrashEvent)="getAllRemainder($event)" (pinEvent)="getAllRemainder($event)"
+    (archiveEvent)="getAllRemainder($event)" *ngFor="let note of data" [noteCards]="note">
+  </app-display>
+</div>

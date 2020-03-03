@@ -1,0 +1,16 @@
+<app-note (messageEvent)="receiveMessage()"></app-note>
+<span class="toDisplay" *ngIf="pinnedArray.length !== 0">PINNED</span>
+<div *ngIf="pinnedArray.length !== 0" [ngClass]="!clicked ? 'list' : 'grid'" cdkDropList [cdkDropListData]="pinnedArray"
+  (cdkDropListDropped)="drop($event)" cdkDragBoundary="!clicked ? 'list' : 'grid'">
+  <app-display (reminderEvent)="getAllNotes($event)" (colorEventForDisplay)="getAllNotes($event)"
+    (isTrashEvent)="getAllNotes($event)" (pinEvent)="getAllNotes($event)" (archiveEvent)="getAllNotes($event)"
+    *ngFor="let pin of pinnedArray" [noteCards]="pin" cdkDrag></app-display>
+</div>
+<span class="toDisplay" *ngIf="pinnedArray.length !== 0 && data.length !== 0">OTHERS</span>
+<div [ngClass]="!clicked ? 'list' : 'grid'" cdkDropList [cdkDropListData]="data" (cdkDropListDropped)="drop($event)"
+  cdkDragBoundary="!clicked ? 'list' : 'grid'">
+  <app-display (reminderEvent)="getAllNotes($event)" (colorEventForDisplay)="getAllNotes($event)"
+    (isTrashEvent)="getAllNotes($event)" (pinEvent)="getAllNotes($event)" (archiveEvent)="getAllNotes($event)"
+    *ngFor="let note of data" [noteCards]="note" cdkDrag></app-display>
+</div>
+<!-- [noteCards]="data" -->

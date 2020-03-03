@@ -1,0 +1,5 @@
+<div [ngClass]="!clicked ? 'list' : 'grid'">
+    <app-display (archiveEvent)="getAllArchive($event)" (reminderEvent)="getAllArchive($event)"
+        (colorEventForDisplay)="getAllArchive($event)" (isTrashEvent)="getAllArchive($event)"
+        (pinEvent)="getAllArchive($event)" *ngFor="let note of data" [noteCards]="note"></app-display>
+</div>

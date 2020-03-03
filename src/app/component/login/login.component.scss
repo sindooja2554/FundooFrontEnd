@@ -1,0 +1,94 @@
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+label {
+    font-weight:bold;
+    margin-right:10px;
+}
+.table {
+    // padding-top: 0%;
+    position: relative;
+    display:table;
+    text-align:center;
+    width:100%;
+    height:100%;
+    table-layout:fixed;
+}
+.cell {
+    // padding: 110px;
+    display:table-cell;
+    vertical-align:middle;
+}
+/* form {
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius: 2.5%; 
+    width: 400px;
+    height: 300px; */
+    /* padding:50px 0; */
+    /* padding: 48px 40px 36px;
+    background: white;
+} */
+
+.example-card{
+    display:inline-block;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius: 2.5%; 
+    width: 400px;
+    padding: 30px 35px 30px;
+    background: white;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.example-container > * {
+    width: 100%;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.para{
+    font-size: 25px;
+    font: 16px "roboto";
+    margin-bottom: 5%;
+}
+
+.paragraph{
+    font-size: 25px;
+    padding: 8px 0px 0px;
+    margin-bottom: 2%;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    line-height: 3;
+}
+ 
+.button {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+} 
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}

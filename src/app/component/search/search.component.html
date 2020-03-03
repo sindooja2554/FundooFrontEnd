@@ -1,0 +1,4 @@
+<div  [ngClass]="!clicked ? 'list' : 'grid'">
+    <app-display *ngFor=" let note of searchData" [noteCards]="note" ></app-display>
+    <!-- (searchRes)="callingSearch(null)" -->
+</div>

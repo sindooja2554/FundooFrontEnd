@@ -1,0 +1,15 @@
+.grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // width: 210px;
+    // background-color: blue;
+    margin-left: 150px;
+    margin-right: 50px;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    // background-color: blueviolet;
+  }

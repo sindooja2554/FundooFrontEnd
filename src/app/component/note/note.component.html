@@ -1,0 +1,64 @@
+<div>
+  <div class="note" fxLayout="column" fxLayoutAlign="start center" fxFlex.xs="60" 
+    *ngIf="clicked" >
+    <!-- class="note" -->
+    <mat-form-field class="noteBar" appearance="outline" (click)="clicked = !clicked">
+      <input matInput placeholder="Take a note...">
+      <div class="icons" matSuffix>
+        <img src="../../../assets/check_Box.svg" class="checkBoxIcon" matTooltip="New list">
+        <img src="../../../assets/paint_brush.svg" class="brushIcon" matTooltip="New note with drawing">
+        <img src="../../../assets/image.svg" class="imageIcon" matTooltip="New note with image">
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div class="createNote" *ngIf="!clicked">
+    <!-- <div *ngIf="color.code"> -->
+    <div class="textArea" *ngIf="show" [style.background-color]="color.code">
+      <div class="alignTitleIcon">
+        <div class="title">
+          <input matInput placeholder="Title" [(ngModel)]="noteData.title" class="titleNote" autocomplete="off">
+          <!-- <textarea matInput placeholder="Title" [(ngModel)]="noteData.title" class="titleNote"></textarea> -->
+        </div>
+        <button mat-icon-button class="pinIcons" matSuffix *ngIf="!pinToggle" (click)="pinned()">
+          <img src="../../../assets/pin.svg" class="pinIcon" matTooltip="Pin note">
+        </button>
+        <button mat-icon-button class="pinIcons" matSuffix *ngIf="pinToggle" (click)="unpinned()">
+          <img src="../../../assets/pinned.svg" class="pinIcon" matTooltip="Unpin Icon">
+        </button>
+      </div>
+      <input class="inputField" matInput placeholder="Take a note..." [(ngModel)]="noteData.description"
+        autocomplete="off">
+      <!-- <textarea class="inputField" matInput placeholder="Take a note..." [(ngModel)]="noteData.description"></textarea> -->
+      <div *ngIf="remainder !== null">
+        <mat-chip-list #chipList aria-label="Remainder">
+          <mat-chip>
+            <img src="../../../assets/clock.svg">
+            {{remainder | date:'medium'}}
+            <mat-icon matChipRemove *ngIf="removable" (click)="removeReminder()">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div *ngIf="noteCards.labels !== []" class="labels">
+        <mat-chip-list #chipList aria-label="Label" *ngFor="let label of noteCards.labels">
+          <mat-chip>
+            {{label.label}}
+            <mat-icon matChipRemove *ngIf="removable" (click)="removeLabel(label)">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="doubleDivs" *ngIf="show">
+        <app-note-icon (reminder)="setReminder($event)" (colorEvent)="setColor($event)" (delete)="addToTrash($event)"
+          (archive)="archived($event)" (unArchived)="unarchive($event)" (labelled)="addLabelOrRemoveLabel($event)"
+          [noteCards]="noteCards">
+        </app-note-icon>
+        <div class="button" role="button">
+          <button mat-button (click)="onButtonClick()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div> -->
+  </div>
+
+</div>

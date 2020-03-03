@@ -1,0 +1,18 @@
+<div class="createNote" [style.background-color]="data.color.code">
+    <div class="textArea">
+        <div class="alignTitleIcon">
+            <div class="title">
+                <span>{{data.title}}</span>
+            </div>
+        </div>
+        <span>{{data.description}}</span>
+        <div class="doubleDivs">
+            <button mat-icon-button (click)="openDialogToDelete(data)">
+                <img src="../../../assets/delete.svg" matTooltip="delete">             
+            </button>
+            <button mat-icon-button (click)="restore()">
+                <img src="../../../assets/undodelete.svg" matTooltip="restore">
+            </button>
+        </div>
+    </div>
+</div>

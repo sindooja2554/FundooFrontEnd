@@ -1,0 +1,47 @@
+<div>
+  <span class="editlabels">Edit Labels</span>
+  <div class="input">
+    <button mat-icon-button (click)="toCreateLabel()" *ngIf="!click">
+      <img src="../../../assets/add.svg">
+    </button>
+    <button mat-icon-button *ngIf="click" (click)="cancel()">
+      <svg focusable="false" height="20px" viewBox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+        </path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </button>
+    <div class="example-container">
+      <input matInput placeholder="Create new label" [disabled]="!click" [(ngModel)]="label" autocomplete="off">
+    </div>
+    <button mat-icon-button *ngIf="click" (click)="createLabel()">
+      <img src="../../../assets/tick.svg">
+    </button>
+  </div>
+
+  <div *ngFor="let label of labelArray" class="displayLabels">
+      <button mat-icon-button class="showme" (click)="deleteLabel(label)" >
+        <img src="../../../assets/delete.svg">
+      </button>
+      <button mat-icon-button class="ok">
+        <img src="../../../assets/labels.svg">
+      </button>
+      <div class="labels" *ngIf="id === label._id">
+        <input matInput [(ngModel)]="label.label" class="inputLabel"
+           autocomplete="off">
+      </div>
+      <div class="labels" *ngIf="id !== label._id">
+        <input matInput [disabled]="id !== label._id" [(ngModel)]="label.label" class="inputLabels"
+           autocomplete="off">
+      </div>
+      <button mat-icon-button *ngIf="id !== label._id" (click)="callingEditLabel(label)">
+        <img src="../../../assets/pen.svg">
+      </button>
+      <button mat-icon-button  *ngIf="id === label._id" (click)="editLabel(label)">
+        <img src="../../../assets/tick.svg">
+      </button>
+  </div>
+  <div class="doneButton" (click)="done()">
+    <button mat-button>Done</button>
+  </div>
+</div>

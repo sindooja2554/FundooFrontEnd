@@ -1,0 +1,173 @@
+html, body {
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+}
+label {
+    font-weight:bold;
+    margin-right:10px;
+}
+.table {
+    position: relative;
+    display:table;
+    text-align:center;
+    width:100%;
+    height:100%;
+    table-layout:fixed;
+    
+}
+.cell {
+    // padding: 110px;
+    display:table-cell;
+    vertical-align:middle;
+    // padding-top: 3%;
+}
+
+.example-card{
+    display:inline-block;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    display:inline-block;
+    border:1px solid lightgray;
+    border-radius: 2.5%; 
+    width: 700px;
+    padding: 30px 35px 30px;
+    background: white;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0 0; 
+  }
+
+//   ::ng-deep .mat-form-field-wrapper {
+//     padding-bottom: unset; 
+// }
+
+// ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+//     padding: 0 0 0 0;
+// }
+  
+.example-container > * {
+    width: 100%;
+}
+
+.paragraph{
+    font-size: 25px;
+    padding: 8px 0px 8px;
+    text-align: left;
+}
+
+.para{
+    padding: 8px 0px 0px;
+    text-align: left; 
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    display:inline-block;
+    overflow:hidden;
+}
+
+.input1 {
+    display: flex;
+    justify-content: center;
+    // width: 98%;
+    display:inline-block;
+    overflow:hidden;
+}
+
+.name{
+    width: 100%;
+    // margin: 30px 0px 30px;
+    display: flex;
+    justify-content: space-between;
+    // padding: 2%;
+}
+
+#userid{
+    margin: 1px 1px 0px;
+    padding: 13px 2px; 
+    width: 95%;
+    border: 2px solid lightgray;
+    border-radius: 4.5px;
+    float: left;
+    // border-color: lightgray;
+}
+
+#usrid{
+    margin: 1px 1px 0px;
+    padding: 13px 2px; 
+    width: 98%;
+    border: 2px solid lightgray;
+    border-radius: 4.5px;
+    float: left;
+    // border-color: lightgray;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+    padding-left: 2%;
+    line-height: 3;
+}
+
+#user{
+    margin: 1px 1px 0px;
+    padding: 13px 2px; 
+    // width: 100%;
+    border: 2px solid lightgray;
+    border-radius: 4.5px;
+    float: left;
+    // border-color: lightgray;
+}
+
+.division{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right{
+    width: 80%;
+}
+
+.buttonRegister{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.namePass{
+    width: 100%;
+    margin: 10px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+// .pass{
+//     font-size: 13px;
+//     float: right;
+// }
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+}
+
+.sentence{
+    font-size: 12px; 
+    float: left;
+    padding-bottom: 5px;
+}
+
+.image{
+    height: 75%;
+}

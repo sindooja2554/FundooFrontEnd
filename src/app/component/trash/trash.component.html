@@ -1,0 +1,4 @@
+<div  [ngClass]="!clicked ? 'list' : 'grid'">
+  <app-display-trash (trashEvent)="getAllTrash($event)" *ngFor="let note of data" [noteCards]="note">
+  </app-display-trash>
+</div>

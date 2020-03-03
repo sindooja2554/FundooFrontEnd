@@ -1,0 +1,44 @@
+<div class="createNote" [style.background-color]="data.color.code">
+  <div class="textArea">
+    <div class="alignTitleIcon">
+      <div class="title">
+        <input matInput placeholder="Title" [(ngModel)]="title" class="titleNote" />
+      </div>
+      <div class="pinIcons" matSuffix>
+        <button mat-icon-button class="pinIcons" matSuffix *ngIf="!data.isPinned" (click)="pinned()">
+          <img src="../../../assets/pin.svg" class="pinIcon" matTooltip="Pin note" />
+        </button>
+        <button mat-icon-button class="" pinIcons matSuffix *ngIf="data.isPinned" (click)="unpinned()">
+          <img src="../../../assets/pinned.svg" class="pinIcon" matTooltip="Unpin Icon" />
+        </button>
+      </div>
+    </div>
+    <input class="inputField" matInput placeholder="Take a note..." [(ngModel)]="description" />
+    <div *ngIf="data.remainder !== null">
+      <mat-chip-list #chipList aria-label="Remainder">
+        <mat-chip>
+          <img src="../../../assets/clock.svg" />
+          {{ data.remainder | date: "medium" }}
+          <mat-icon matChipRemove *ngIf="removable" (click)="removeReminder()">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div *ngIf="data.labels !== []" class="labels">
+      <mat-chip-list #chipList aria-label="Label" *ngFor="let label of data.labels">
+        <mat-chip>
+          {{ label.label }}
+          <mat-icon matChipRemove *ngIf="removable" (click)="removeLabel(label)">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <div class="doubleDivs">
+      <app-note-icon (reminder)="setReminder($event)" (colorEvent)="setColor($event)" (delete)="addToTrash($event)"
+        (archive)="archived($event)" (unArchived)="unarchive($event)" (labelled)="addLabelOrRemoveLabel($event)"
+        [noteCards]="data">
+      </app-note-icon>
+      <div class="button" role="button">
+        <button mat-button (click)="editNote()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

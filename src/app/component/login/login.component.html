@@ -1,0 +1,59 @@
+<div class='table'>
+    <div class='cell'>
+      <mat-card class="example-card">
+
+        <div class="paragraph">
+          <span style="color: blue">F</span>
+          <span style="color: red">u</span>
+          <span style="color: orange">n</span>
+          <span style="color: blue">d</span>
+          <span style="color: green">o</span>
+          <span style="color: red">o</span>
+        </div>
+
+        <div class="paragraph">
+          Sign In
+        </div>
+        
+        <div class="para">
+          to continue to Fundoo
+        </div>
+
+        <form  action="">
+
+            <div class="example-container">
+              <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                <input [formControl]="email" matInput [(ngModel)]="loginData.email"
+                 placeholder="Enter your email" autocomplete="off" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>            
+              </mat-form-field>          
+            </div>
+
+              <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                  <input [type]="hide ? 'password' : 'text'" [(ngModel)]="loginData.password" [formControl]="password" matInput
+                    placeholder="Enter your password" (keydown.enter)="handleKeyDown($event)" required>
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="password.invalid">{{getPasswordErrorMsg()}}</mat-error>
+                </mat-form-field>
+                <div class="button">
+                  <button mat-button [routerLink]="['/forgotpassword']">Forgot Password?</button>
+                  <button mat-raised-button color="primary" [disabled]="getErrorMessage()!='' || getPasswordErrorMsg()!=''" (click)="login()">Sign In</button>
+                </div>
+              </div>
+
+              <div>
+                <button mat-button [routerLink]="['/registration']">Create Account?</button>
+              </div>
+
+        </form>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+  {{ message | async | json }}

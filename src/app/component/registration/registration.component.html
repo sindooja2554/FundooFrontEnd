@@ -1,0 +1,100 @@
+<div class='table'>
+  <div class='cell'>
+    <mat-card class="example-card">
+      <div class="paragraph">
+        <span style="color: blue">F</span>
+        <span style="color: red">u</span>
+        <span style="color: orange">n</span>
+        <span style="color: blue">d</span>
+        <span style="color: green">o</span>
+        <span style="color: red">o</span>
+      </div>
+      <div class="para">
+        Create your Fundoo Account
+      </div>
+      <form>
+        <div class="division">
+          <div class="right" fxFlex.lt-sm=100>
+            <div class="name" fxLayout="row" fxLayout.lt-sm="column">
+
+              <div class="example-container" fxFlex.lt-sm=100>
+                <mat-form-field fxFlex appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input [formControl]="firstName" matInput [(ngModel)]="register.firstName" autocomplete="off"
+                    required>
+                  <mat-error *ngIf="firstName.invalid">{{getFirstNameErrorMsg()}}</mat-error>
+                </mat-form-field>
+
+              </div>
+
+              <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input [formControl]="lastName" matInput [(ngModel)]="register.lastName" autocomplete="off" required>
+                  <mat-error *ngIf="lastName.invalid">{{getLastNameErrorMsg()}}</mat-error>
+                </mat-form-field>
+              </div>
+
+            </div>
+
+            <div class="example-container">
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input [formControl]="email" matInput [(ngModel)]="register.email" autocomplete="off" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+
+            <span class="sentence">You can use letter's, number's and period's</span>
+
+            <div class="name">
+              <div style="display:flex; justify-content:space-between; width: 100%;" fxLayout="row" fxFlex.lt-sm=100
+                fxLayout.lt-sm="column">
+                <div class="example-container" fxFlex.lt-sm=80>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="register.password" [formControl]="password" matInput required>
+                    <mat-error *ngIf="password.invalid">{{getPasswordErrorMsg()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+                <div class="example-container" fxFlex.lt-sm=80>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" [(ngModel)]="register.confirmPassword"
+                      [formControl]="confirmPassword" matInput required>
+                    <mat-error *ngIf="password.invalid">{{getConfirmPasswordErrorMsg()}}</mat-error>
+                  </mat-form-field>
+                </div>
+
+              </div>
+              <div style="height: 45px; display: flex; align-items: center">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </div>
+            </div>
+
+            <span class="sentence">Use 8 or more characters with a mix of letters, numbers & symbols</span>
+
+            <div class="buttonRegister">
+              <button mat-button [routerLink]="['/login']">Sign in Instead?</button>
+              <button mat-raised-button color="primary" [disabled]="getErrorMessage()!='' 
+                || getFirstNameErrorMsg()!='' || getLastNameErrorMsg()!='' || 
+                getPasswordErrorMsg()!='' || getConfirmPasswordErrorMsg()!='' || passwordMatching() != true"
+                (click)="submit()">
+                Sign Up</button>
+            </div>
+          </div>
+          <div class="left" fxHide.lt-sm="true">
+            <img src="../../assets/accountPic.svg" alt="One account. All of Fundoo working for you." class="image">
+            <div>
+              <span class="sentence">One account. All of Fundoo working for you.</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
+
+<!-- [(formControl)]="email" -->

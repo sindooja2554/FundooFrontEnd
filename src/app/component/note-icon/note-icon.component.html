@@ -1,0 +1,74 @@
+<!-- <div class="doubleDivs" *ngIf = "show"> -->
+<div class="accessibility">
+  <button mat-icon-button [matMenuTriggerFor]="remind" (click)=setVisibility()>
+    <img src="../../../assets/remindme.svg" role="button" class="remindIcon" matTooltip="Remind me">
+  </button>
+  <mat-menu #remind="matMenu">
+    <button mat-menu-item>
+      <mat-icon>arrow_back</mat-icon>
+      Pick date & time
+    </button>
+    <div class="setRemainder">
+      <input class="remainder" [min]="min" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [(ngModel)]="dateTimeRange"
+        (dateTimeInput)="callReminder()" placeholder="Date Time" />
+      <owl-date-time #dt1></owl-date-time>
+    </div>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="colorMenu">
+    <img src="../../../assets/color.svg" class="colorIcon" matTooltip="Change color">
+  </button>
+  <mat-menu #colorMenu="matMenu" yPosition="above">
+    <div class="colors">
+      <mat-icon class="color" role="button" *ngFor="let color of color" [style.background-color]="color.code"
+        (click)="setColor(color)"></mat-icon>
+    </div>
+  </mat-menu>
+
+  <button mat-icon-button (click)="archived()" *ngIf="!isArchived">
+    <img src="../../../assets/archive.svg" class="archiveIcon" matTooltip="Archive">
+  </button>
+
+  <button mat-icon-button (click)="unArchive()" *ngIf="isArchived">
+    <img src="../../../assets/unarchive.svg" class="archiveIcon" matTooltip="Unarchive">
+  </button>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon matTooltip="more">more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="noteCards.title !== null" (click)="deleteNote()">Delete Note</button>
+    <button mat-menu-item [matMenuTriggerFor]="Add_label">Add Label</button>
+    <!-- (click)="open()" -->
+  </mat-menu>
+
+  <mat-menu #Add_label="matMenu">
+    <div class="label">
+      <span>
+        Label note
+      </span>
+    </div> 
+    <!-- <div> -->
+    <input type="text" (click)="$event.stopPropagation()" placeholder="Enter label name" class="labelInput"
+      [(ngModel)]="createLabel">
+    <!-- </div> -->
+    <div *ngFor="let label of labelArray" class="labels">
+      <div class="labelNames">
+        <mat-checkbox (change)="changeLabel($event,label)" [checked]="getCheck(label)">
+          {{label.label}}
+        </mat-checkbox>
+      </div>
+    </div>
+
+    <div style="border-top: 2px solid lightgray;">
+      <div style="display: flex; justify-content: flex-start; align-content: space-around;">
+        <button mat-button class="labelNames" (click)="createLabelOnNote(createLabel)">
+          <img src="../../../assets/add.svg">
+          <a>Create</a>
+          <a>{{createLabel}}</a>
+        </button>
+      </div>
+    </div>
+  </mat-menu>
+
+
+</div>
